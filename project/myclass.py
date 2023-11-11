@@ -1,3 +1,4 @@
+from fallah import *
 from tkinter import *
 import pymysql
 

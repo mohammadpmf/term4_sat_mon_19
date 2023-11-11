@@ -25,6 +25,31 @@ management_window.config(bg=BG)
 insert_window.config(bg=BG)
 update_window.config(bg=BG)
 delete_window.config(bg=BG)
+search_window.protocol('WM_DELETE_WINDOW', root.destroy)
+management_window.protocol('WM_DELETE_WINDOW', root.destroy)
+insert_window.protocol('WM_DELETE_WINDOW', root.destroy)
+update_window.protocol('WM_DELETE_WINDOW', root.destroy)
+delete_window.protocol('WM_DELETE_WINDOW', root.destroy)
+
+######################## Management window widgets ########################
+btn_add=Button(management_window, text='Add Game', cnf=config_btns_root,
+    command=lambda:change_window(insert_window, management_window))
+btn_update=Button(management_window, text='Update Game', cnf=config_btns_root,
+    command=lambda:change_window(update_window, management_window))
+btn_delete=Button(management_window, text='Delete Game', cnf=config_btns_root,
+    command=lambda:change_window(delete_window, management_window))
+btn_back_management=Button(management_window, text='Back', cnf=config_btns_root,
+    command=lambda:change_window(root, management_window))
+btn_add.pack(cnf=config_btns_root_pack)
+btn_update.pack(cnf=config_btns_root_pack)
+btn_delete.pack(cnf=config_btns_root_pack)
+btn_back_management.pack(cnf=config_btns_root_pack)
+######################## End Management window widgets ########################
+######################## Insert window widgets ########################
+game = MyGame(insert_window)
+game.grid()
+######################## End Insert window widgets ########################
+
 
 btn_management=Button(root, text='Management', cnf=config_btns_root,
     command=lambda:change_window(management_window, root))
