@@ -46,10 +46,12 @@ btn_delete.pack(cnf=config_btns_root_pack)
 btn_back_management.pack(cnf=config_btns_root_pack)
 ######################## End Management window widgets ########################
 ######################## Insert window widgets ########################
-game = MyGame(insert_window)
+game = AddGame(insert_window, connection)
+btn_back_add=Button(insert_window, text='Back', cnf=config_btns_root,
+    command=lambda:change_window(management_window, insert_window))
 game.grid()
+btn_back_add.grid()
 ######################## End Insert window widgets ########################
-
 
 btn_management=Button(root, text='Management', cnf=config_btns_root,
     command=lambda:change_window(management_window, root))
